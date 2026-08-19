@@ -1,7 +1,10 @@
-import heroImage from './assets/images/family_rehub_hero_1783502231845.jpg';
+import heroImage from './assets/images/c7b94465-26a7-4b97-8d01-6b233ee6682c.png';
 import therapyImage from './assets/images/family_rehub_therapy_1783502249013.jpg';
 import React, { useState } from 'react';
 import Header from './components/Header';
+import AdvantagesSection from './components/AdvantagesSection';
+import StagesSection from './components/StagesSection';
+import ServicesSection from './components/ServicesSection';
 import Certificates from './components/Certificates';
 import TestSection from './components/TestSection';
 import CalculatorSection from './components/CalculatorSection';
@@ -70,7 +73,8 @@ export default function App() {
               </h1>
 
               <p className="text-text-primary/85 text-base sm:text-lg leading-relaxed max-w-xl font-sans">
-                Профессиональная реабилитация зависимых в экологичном центре FAMILY REHAB в Алматы. Мы лечим не просто болезнь — мы восстанавливаем разрушенные отношения, избавляем от созависимости и возвращаем близких к полноценной трезвой жизни в предгорьях Заилийского Алатау.
+                Победите зависимость и восстановите свою обычную жизнь
+                В FAMILY REHAB мы предлагаем всестороннюю поддержку в борьбе с зависимостью, помогая вам или вашим близким достичь свободы и наслаждаться полной радостью жизни..
               </p>
 
               {/* Highlights pills */}
@@ -265,6 +269,10 @@ export default function App() {
         </div>
       </section>
 
+      <AdvantagesSection />
+      <StagesSection onOpenConsultation={openConsultation} />
+      <ServicesSection onOpenConsultation={openConsultation} />
+
       {/* Program Directions Quick Preview */}
       <section id="programs" className="scroll-mt-24 py-24 bg-bg-secondary border-t border-border-custom">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -331,7 +339,7 @@ export default function App() {
       <MotivationGuide onOpenConsultation={openConsultation} />
 
       {/* Dynamic Calculator Section */}
-      <CalculatorSection onOpenConsultation={openConsultation} />
+      {/* <CalculatorSection onOpenConsultation={openConsultation} /> */}
 
       {/* Self-Test Section */}
       <TestSection onOpenConsultation={openConsultation} />
@@ -486,10 +494,10 @@ export default function App() {
 
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
             <a
-              href="tel:+77471502788"
+              href="tel:+77777777777"
               className="w-full sm:w-auto bg-red-600 hover:bg-red-500 text-bg-primary font-bold py-4.5 px-8 transition-all flex items-center justify-center gap-2 border border-red-600 text-base md:text-lg uppercase tracking-wider"
             >
-              <PhoneCall className="w-5 h-5 animate-pulse" /> +7 (747) 150-27-88
+              <PhoneCall className="w-5 h-5 animate-pulse" /> +7 (777) 777-77-77
             </a>
             <button
               onClick={() => openConsultation('Заявка на срочный выезд помощи 24/7 с футера')}

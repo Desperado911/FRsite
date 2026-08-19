@@ -58,3 +58,28 @@ export interface ReviewItem {
   date: string;
   recoveredPeriod: string; // e.g., "Трезвость: 2 года"
 }
+
+export type AdvantageIconKey = 'steps' | 'comfort' | 'homeVisit' | 'team';
+
+export interface AdvantageItem {
+  id: string;
+  icon: AdvantageIconKey;
+  title: string;
+  description: string;
+}
+
+export interface RehabStage {
+  id: string;
+  number: string;
+  title: string;
+  description: string;
+  buttonLabel: string;
+  consultationContext: string;
+}
+
+export interface ServiceItem {
+  id: string;
+  title: string;
+  shortTitle: string;
+  description: string;
+}
