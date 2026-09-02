@@ -50,12 +50,12 @@ export default function Header({ onOpenConsultation }: HeaderProps) {
   return (
     <header
       id="app-header"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 max-w-[100vw] overflow-x-hidden ${isScrolled
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${isScrolled
         ? 'bg-stone-900/90 backdrop-blur-md border-b border-stone-800 shadow-lg py-3'
         : 'bg-transparent py-5'
         }`}
     >
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto pl-5 pr-7 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-3 xl:gap-6 flex-nowrap">
           {/* Logo */}
           <a href="#" className="flex items-center gap-3 group shrink-0">
@@ -120,7 +120,7 @@ export default function Header({ onOpenConsultation }: HeaderProps) {
           </div>
 
           {/* Mobile menu button */}
-          <div className="xl:hidden flex items-center gap-3">
+          <div className="xl:hidden flex items-center gap-2.5 shrink-0">
             <a
               href="https://wa.me/77762166603"
               target="_blank"
@@ -133,7 +133,7 @@ export default function Header({ onOpenConsultation }: HeaderProps) {
             <button
               id="mobile-menu-toggle"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`p-2 rounded-lg transition-colors ${isScrolled
+              className={`p-2.5 rounded-lg transition-colors ${isScrolled
                 ? 'text-stone-300 hover:text-white hover:bg-stone-800'
                 : 'text-stone-700 hover:text-stone-900 hover:bg-stone-200'
                 }`}
