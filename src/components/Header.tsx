@@ -130,13 +130,6 @@ export default function Header({ onOpenConsultation }: HeaderProps) {
             >
               <MessageCircle className="w-5 h-5" />
             </a>
-            <a
-              href="tel:+77762166603"
-              className="sm:hidden p-2 rounded-lg bg-stone-800 text-emerald-400 hover:bg-stone-700 transition-colors"
-              title="Позвонить на горячую линию"
-            >
-              <Phone className="w-5 h-5" />
-            </a>
             <button
               id="mobile-menu-toggle"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
