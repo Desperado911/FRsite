@@ -55,7 +55,7 @@ export default function Header({ onOpenConsultation }: HeaderProps) {
         : 'bg-transparent py-5'
         }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-3 xl:gap-6 flex-nowrap">
           {/* Logo */}
           <a href="#" className="flex items-center gap-3 group shrink-0">
