@@ -1,5 +1,8 @@
 import { TestQuestion, TestResult, ProgramType, RoomType, TeamMember, FAQItem, ReviewItem, AdvantageItem, RehabStage, ServiceItem } from './types';
 import reviewAudio1 from './assets/reviews/review-audio-1.ogg';
+import muratPhoto from './assets/images/team/murat.jpg';
+import mereyPhoto from './assets/images/team/merey.jpg';
+import salamatPhoto from './assets/images/team/salamat.jpg';
 
 export const TEST_QUESTIONS: TestQuestion[] = [
   // Addiction questions (for yourself)
@@ -344,8 +347,8 @@ export const TEAM: TeamMember[] = [
     role: "Генеральный директор",
     experience: "Опыт работы: ?? года",
     specialty: "Работает с созависимыми родственниками, восстанавливает доверительные коммуникации в семьях.",
-    education: "РНИМУ им. Н.И. Пирогова, стажировки в Германии и Швейцарии.",
-    photoUrl: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=400&h=400"
+    education: "Высшее образование.",
+    photoUrl: ""
   },
   {
     id: "member-2",
@@ -353,8 +356,8 @@ export const TEAM: TeamMember[] = [
     role: "Руководитель центра",
     experience: "Опыт работы: ?? лет",
     specialty: "Работает с созависимыми родственниками, восстанавливает доверительные коммуникации в семьях.",
-    education: "МГУ им. М.В. Ломоносова, Факультет психологии.",
-    photoUrl: "https://images.unsplash.com/photo-1594824813573-246434de83fb?auto=format&fit=crop&q=80&w=400&h=400"
+    education: "Высшее образование.",
+    photoUrl: ""
   },
   {
     id: "member-3",
@@ -362,17 +365,26 @@ export const TEAM: TeamMember[] = [
     role: "Психолог",
     experience: "Опыт работы: ?? лет",
     specialty: "Специалист по когнитивно-поведенческой терапии (КПТ) и гештальт-терапии зависимых состояний.",
-    education: "Институт практической психологии и психоанализа.",
-    photoUrl: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=400&h=400"
+    education: "Высшее образование.",
+    photoUrl: muratPhoto
   },
   {
     id: "member-4",
     name: "Мерей",
-    role: "Операционный директор",
+    role: "Психолог",
     experience: "Опыт работы: 8 лет",
     specialty: "Специалист по когнитивно-поведенческой терапии (КПТ) и гештальт-терапии зависимых состояний.",
-    education: "Санкт-Петербургская академия постдипломного педагогического образования.",
-    photoUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400&h=400"
+    education: "Высшее образование.",
+    photoUrl: mereyPhoto
+  },
+  {
+    id: "member-5",
+    name: "Саламат",
+    role: "Консультант",
+    experience: "Опыт работы: 9 лет",
+    specialty: "Аддиктолог, реабилитолог. Сопровождает резидентов на всех этапах восстановления, помогает выстроить устойчивую трезвую жизнь после выписки.",
+    education: "Высшее образование.",
+    photoUrl: salamatPhoto
   }
 ];
 

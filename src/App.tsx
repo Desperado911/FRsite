@@ -1,5 +1,5 @@
 import heroImage from './assets/images/c7b94465-26a7-4b97-8d01-6b233ee6682c.png';
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Header from './components/Header';
 import AdvantagesSection from './components/AdvantagesSection';
 import StagesSection from './components/StagesSection';
@@ -21,6 +21,7 @@ import {
   MapPin,
   Award,
   Star,
+  ChevronLeft,
   ChevronRight,
   PhoneCall,
   MessageCircle,
@@ -36,10 +37,40 @@ const WHATSAPP_URL = 'https://wa.me/77762166603?text=' + encodeURIComponent('З�
 export default function App() {
   const [isConsultationOpen, setIsConsultationOpen] = useState(false);
   const [modalContext, setModalContext] = useState<string>('');
+  const teamScrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollTeamLeft, setCanScrollTeamLeft] = useState(false);
+  const [canScrollTeamRight, setCanScrollTeamRight] = useState(true);
 
   const openConsultation = (context: string = '') => {
     setModalContext(context);
     setIsConsultationOpen(true);
+  };
+
+  const checkTeamScrollButtons = () => {
+    if (teamScrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = teamScrollRef.current;
+      setCanScrollTeamLeft(scrollLeft > 10);
+      setCanScrollTeamRight(scrollLeft < scrollWidth - clientWidth - 10);
+    }
+  };
+
+  useEffect(() => {
+    checkTeamScrollButtons();
+    const el = teamScrollRef.current;
+    if (el) {
+      el.addEventListener('scroll', checkTeamScrollButtons);
+      return () => el.removeEventListener('scroll', checkTeamScrollButtons);
+    }
+  }, []);
+
+  const handleTeamScroll = (direction: 'left' | 'right') => {
+    if (teamScrollRef.current) {
+      const scrollAmount = teamScrollRef.current.clientWidth * 0.75;
+      teamScrollRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth',
+      });
+    }
   };
 
   const scrollToSection = (e: React.MouseEvent<HTMLButtonElement>, href: string) => {
@@ -342,30 +373,78 @@ export default function App() {
       {/* Our Professional Team Grid */}
       <section id="team" className="scroll-mt-24 py-24 bg-bg-secondary border-t border-border-custom">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-accent-light text-accent text-xs font-semibold uppercase tracking-wider border border-border-custom mb-3">
-              <Users className="w-4 h-4" /> Наша команда
-            </span>
-            <h2 className="text-3xl md:text-4xl font-serif font-semibold tracking-tight text-text-primary mb-4">
-              Дипломированные врачи психотерапевты и консультанты
-            </h2>
-            <p className="text-text-primary/75 max-w-xl mx-auto text-sm md:text-base leading-relaxed">
-              Мы гордимся нашей командой. Каждый специалист — это признанный профессионал с многолетним опытом практической работы в сфере реабилитации.
-            </p>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+            <div>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-accent-light text-accent text-xs font-semibold uppercase tracking-wider border border-border-custom mb-3">
+                <Users className="w-4 h-4" /> Наша команда
+              </span>
+              <h2 className="text-3xl md:text-4xl font-serif font-semibold tracking-tight text-text-primary mb-4">
+                Дипломированные врачи психотерапевты и консультанты
+              </h2>
+              <p className="text-text-primary/75 max-w-xl text-sm md:text-base leading-relaxed">
+                Мы гордимся нашей командой. Каждый специалист — это признанный профессионал с многолетним опытом практической работы в сфере реабилитации.
+              </p>
+            </div>
+
+            <div className="flex items-center gap-1.5">
+              <button
+                onClick={() => handleTeamScroll('left')}
+                disabled={!canScrollTeamLeft}
+                aria-label="Предыдущие специалисты"
+                className={`w-9 h-9 flex items-center justify-center border transition-all cursor-pointer ${
+                  canScrollTeamLeft
+                    ? 'bg-bg-primary border-border-custom text-text-primary hover:border-accent hover:text-accent'
+                    : 'bg-bg-primary/50 border-border-custom/50 text-text-secondary/40 cursor-not-allowed'
+                }`}
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button
+                onClick={() => handleTeamScroll('right')}
+                disabled={!canScrollTeamRight}
+                aria-label="Следующие специалисты"
+                className={`w-9 h-9 flex items-center justify-center border transition-all cursor-pointer ${
+                  canScrollTeamRight
+                    ? 'bg-bg-primary border-border-custom text-text-primary hover:border-accent hover:text-accent'
+                    : 'bg-bg-primary/50 border-border-custom/50 text-text-secondary/40 cursor-not-allowed'
+                }`}
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="relative -mx-4 px-4 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+            <div
+              ref={teamScrollRef}
+              className="flex gap-5 overflow-x-auto pb-4 pt-1 snap-x snap-mandatory scroll-smooth"
+              style={{ scrollbarWidth: 'thin' }}
+            >
             {TEAM.map((member) => (
               <div
                 key={member.id}
-                className="bg-bg-primary border border-border-custom overflow-hidden hover:border-accent transition-all flex flex-col justify-between"
+                className="bg-bg-primary border border-border-custom overflow-hidden hover:border-accent transition-all flex flex-col justify-between w-[260px] sm:w-[280px] shrink-0 snap-start"
               >
                 <div>
                   <div className="relative">
-                    <div className="w-full h-64 bg-stone-800 flex items-center justify-center">
-                      <User className="w-16 h-16 text-stone-600" strokeWidth={1.5} />
-                    </div>
-                    <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-bg-primary/90 to-transparent" />
+                    {member.photoUrl ? (
+                      <img
+                        src={member.photoUrl}
+                        alt={member.name}
+                        className="w-full h-64 object-cover"
+                        style={{
+                          objectPosition:
+                            member.id === "member-4" ? "center 25%" :
+                            member.id === "member-5" ? "center 35%" :
+                            "center"
+                        }}
+                      />
+                    ) : (
+                      <div className="w-full h-64 bg-stone-800 flex items-center justify-center">
+                        <User className="w-16 h-16 text-stone-600" strokeWidth={1.5} />
+                      </div>
+                    )}
+                                      
                     <div className="absolute bottom-4 left-4">
                       <span className="text-[10px] text-accent font-mono font-bold uppercase tracking-wider bg-bg-primary border border-border-custom px-2.5 py-1">
                         {member.experience}
@@ -387,6 +466,7 @@ export default function App() {
                 </div>
               </div>
             ))}
+            </div>
           </div>
 
           <div className="mt-12 text-center">
