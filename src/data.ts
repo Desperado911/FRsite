@@ -2,7 +2,9 @@ import { TestQuestion, TestResult, ProgramType, RoomType, TeamMember, FAQItem, R
 import reviewAudio1 from './assets/reviews/review-audio-1.ogg';
 import muratPhoto from './assets/images/team/murat.jpg';
 import mereyPhoto from './assets/images/team/merey.jpg';
-import salamatPhoto from './assets/images/team/salamat.jpg';
+import beketPhoto from './assets/images/team/beket.jpeg';
+import dairPhoto from './assets/images/team/dair.jpeg';
+import ardakPhoto from './assets/images/team/ardak.jpeg';
 
 export const TEST_QUESTIONS: TestQuestion[] = [
   // Addiction questions (for yourself)
@@ -345,25 +347,25 @@ export const TEAM: TeamMember[] = [
     id: "member-1",
     name: "Бекет Елтаевич",
     role: "Генеральный директор",
-    experience: "Опыт работы: ?? года",
+    experience: "Опыт работы: 15 лет",
     specialty: "Работает с созависимыми родственниками, восстанавливает доверительные коммуникации в семьях.",
     education: "Высшее образование.",
-    photoUrl: ""
+    photoUrl: beketPhoto
   },
   {
     id: "member-2",
     name: "Даир Серикович",
     role: "Руководитель центра",
-    experience: "Опыт работы: ?? лет",
+    experience: "Опыт работы: 14 лет",
     specialty: "Работает с созависимыми родственниками, восстанавливает доверительные коммуникации в семьях.",
     education: "Высшее образование.",
-    photoUrl: ""
+    photoUrl: dairPhoto
   },
   {
     id: "member-3",
     name: "Мурат",
     role: "Психолог",
-    experience: "Опыт работы: ?? лет",
+    experience: "Опыт работы: 15 лет",
     specialty: "Специалист по когнитивно-поведенческой терапии (КПТ) и гештальт-терапии зависимых состояний.",
     education: "Высшее образование.",
     photoUrl: muratPhoto
@@ -379,12 +381,12 @@ export const TEAM: TeamMember[] = [
   },
   {
     id: "member-5",
-    name: "Саламат",
-    role: "Консультант",
+    name: "Ардак",
+    role: "Старший Консультант",
     experience: "Опыт работы: 9 лет",
     specialty: "Аддиктолог, реабилитолог. Сопровождает резидентов на всех этапах восстановления, помогает выстроить устойчивую трезвую жизнь после выписки.",
     education: "Высшее образование.",
-    photoUrl: salamatPhoto
+    photoUrl: ardakPhoto
   }
 ];
 

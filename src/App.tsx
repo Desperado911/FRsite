@@ -434,6 +434,7 @@ export default function App() {
                         className="w-full h-64 object-cover"
                         style={{
                           objectPosition:
+                            member.id === "member-2" ? "center 25%" :
                             member.id === "member-4" ? "center 25%" :
                             member.id === "member-5" ? "center 35%" :
                             "center"
