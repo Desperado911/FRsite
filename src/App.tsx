@@ -100,14 +100,18 @@ export default function App() {
                 <Shield className="w-4 h-4 text-accent" /> 100% Анонимно. Без постановки на учет.
               </div>
 
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-semibold tracking-tight text-text-primary leading-[1.1]">
-                Верните покой <br className="hidden sm:inline" />
-                и доверие в <span className="italic font-serif text-accent underline decoration-border-custom decoration-2 underline-offset-4">вашу семью</span>
-              </h1>
+              <div className="space-y-3">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-semibold tracking-tight text-text-primary leading-[1.15]">
+                  Помощь при зависимостях и семейная терапия в Алматы
+                </h1>
+
+                <p className="text-lg sm:text-xl md:text-2xl font-serif italic text-accent">
+                  Верните покой и доверие в вашу семью
+                </p>
+              </div>
 
               <p className="text-text-primary/85 text-base sm:text-lg leading-relaxed max-w-xl font-sans">
-                Победите зависимость и восстановите свою обычную жизнь
-                В FAMILY REHAB мы предлагаем всестороннюю поддержку в борьбе с зависимостью, помогая вам или вашим близким достичь свободы и наслаждаться полной радостью жизни..
+                FAMILY REHAB в Алматы помогает людям с алкогольной, наркотической и игровой зависимостью, а также их близким — справляться с созависимостью и восстанавливать отношения.
               </p>
 
               {/* Highlights pills */}
